@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<style>
+*{background-color:#312d2d;}
+::selection{background-color:#ea8eff;}
+#base{
+    max-width: 660px;
+    margin:0 auto;
+    width:100%;
+    display:block;
+    position:relative;
+    color:#11beff;
+    font-size:18px;
+    overflow: hidden;
+}
+@media(max-width:767px){
+    #base{font-size:100%;white-space:normal;}
+}
+small {
+    font-size: 0.60em;
+    color: #fff;
+}
+h2{
+   padding: 0 0.5em;
+   color:#fff;
+}
+
+.playgrnd1 span:nth-of-type(1n+1){
+    font-size: 12px;
+    color: red;
+    background-color: yellow;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 1px 4px;
+}
+.playgrnd1 span:nth-of-type(1n+1):hover:after{
+    content:'';
+    font-size: 1.80em;
+    line-height: 2;
+    background-color: yellow;
+}
+.playgrnd1 span:nth-of-type(1):hover:after{
+    content: 'beforebegin - <p>Hello world!</p>';
+}
+.playgrnd1 span:nth-of-type(2):hover:after{
+    content: 'afterbegin  - <p>Hello world!</p>';
+}
+.playgrnd1 span:nth-of-type(3):hover:after{
+    content: 'beforeend - <p>Hello world!</p>';
+}
+.playgrnd1 span:nth-of-type(4):hover:after{
+    content: 'afterend - <p>Hello world!</p>';
+}
+section h3{
+    text-align:center;
+}
+section h3 code{
+    color:#f98c0b;
+}
+section code{
+    font-size:1.15em;
+    color:#90ec90;
+}
+section p{
+    border-bottom: 1px solid grey;
+    padding-bottom: 1em;
+    font-size: 1.10em;
+    line-height:1.5;
+}
+.toggle{
+    position: absolute;
+    left:0;
+    font-size: 1.95em;
+}
+.toggle:hover{
+   cursor: pointer;
+   transform:rotate(-10deg);
+}
+
+section{
+    box-shadow: 3px 3px 10px rgba(167, 227, 236, 0.95);
+    padding: 1em 0.90em;
+    margin:1em auto;
+    border:1px solid rgba(249, 244, 245, 0.8);
+    border-radius:5px;
+    opacity:0;
+    height:0;
+    transition: all 400ms;
+    transform:skew(-40deg) rotate(300deg) translateY(50em);;
+    margin:2em 0 0 2em;
+    width: auto;
+}
+.show{
+    opacity:1;
+    height:100%;
+    transform:skew(0deg) rotate(0deg) translateY(0);
+}
+section code > span.toolTip{position:relative;display:inline-block;}
+section code > span.toolTip:before{opacity:1;}
+section code > span.toolTip:hover:before{
+    content: 'default text';
+    width: auto;
+    height: auto;
+    background-color: orange;
+    color: #fff;
+    opacity: 1;
+    position: absolute;
+    top: -6.5em;
+    left: -2em;
+    text-align: center;
+    line-height: 1.4;
+    padding: 0.1em 0.5em;
+    border-radius: 5px;
+}
+/* adjacentHTML */
+section:nth-child(4) code > span.toolTip:hover:before{
+    content: ' beforebegin afterbegin beforeend afterend ';
+    }
+section:nth-child(4) code > span.toolTip:nth-child(2):hover:before{
+    content: ' Any valid HTML string ';
+    }
+
+section code > span.toolTip:hover{
+    cursor:pointer;
+}
+#myForm input {
+    color:white;
+}
+</style>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
+    <title>Welcome to avishai84.com - a front-end web developer.</title>
+</head>
+
+<body>
+    <div id="base">
+    <h2>JavaScript APIs you've hardly heard of <small>(And no vendor prefix!)</small></h2>
+    <p style="display:none;">https://www.youtube.com/watch?v=tMh-_Ri650Q</p>
+    
+
+<!-- AdjacentHTML -->
+    <div class="toggle"></div>
+    <section>
+        <header>
+            <h3><code>insertAdjacentHTML()</code></h3>
+        </header>
+        <p>Purpose: insert HTML string at the DOM in a specific place. (like innerHTML plus a location).</p>
+        <code>element.insertAdjacentHTML(<span class="toolTip">location</span>, <span class="toolTip">html</span>);</code>
+        <p>Consider this HTML: </p>
+        <code>
+        <div class="playgrnd1" style="display:none">
+        // reference<br>
+        const menu = document.querySelector('.menu');<br><br>
+        menu.insertAdjacentHTML('beforebegin', '&lt;p&gt;Hello world!&lt;/p&gt;');<br><br><br>
+            <div>&lt;h2&gt;Site menu&lt;/h2&gt;<br></div>
+            <div>&lt;nav&gt;</div>
+            <span style="display:none">?</span>
+            <div>&nbsp;&nbsp;&lt;ul class="menu"&gt;<br></div><span style="display:none">?</span>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;<br></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=/home&gt;Home&lt;/a&gt;<br></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;<br></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;<br></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a href=/about&gt;About&lt;/a&gt;<br></div>
+            <div>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;<br></div><span style="display:none">?</span>
+            <div>&nbsp;&nbsp;&lt;/ul&gt;<br></div><span style="display:none">?</span>
+            <div>&lt;/nav&gt;</div>
+        <br><br>
+
+
+        </div>
+        </code>
+    </section>
+<!-- contains -->
+
+    <div class="toggle"></div>
+    <section>
+        <header>
+            <h3><code>contains()</code></h3>
+        </header>
+        <p>Purpose: determind if a given element is an ancestor of another.</p>
+        <code>
+        <div class="playgrnd2">
+        <div> const element = document.querySelector('.wrapper');</div><br>
+        <div> if(document.body.contains(element)){<br>
+           <br>&nbsp;&nbsp;// do something<br>
+        <br>&nbsp;&nbsp;}</div><br>
+        <div class="codeContains" style="display:none">
+        <p>Consider this HTML:</p>
+        &lt;div class="wrapper"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&lt;div class="foo"&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h4&gt;BIG TEXT&lt;/h4&gt;<br>
+        &nbsp;&nbsp;&nbsp;&lt;/div&gt;<br>
+        &lt;/div&gt;<br>
+        <p style="font-size: 0.65em;">document.querySelector('.wrapper').contains(document.querySelector('h4')) ? true : false;</p>
+        </div>
+        <br><br>
+  
+
+        </div>
+        </code>
+    </section>
+    <!-- FormData -->
+    <div class="toggle"></div>
+    <section>
+        <header>
+            <h3><code>FormData()</code></h3>
+        </header>
+        <p>Allow to submit data as if its in a form element without seralization.</p>
+        <code>
+            create new formData Obj.<br>
+            var data = new FormData();<br><br>
+            Adding key/value pair into the obj using append as if its an input element.<br><br>
+            data.append("name", "Avishai");<br>
+            &lt;input type="text" name="name" /&gt;
+          <input type="text" name="name" value='Avishai' style="color:#fff;">
+        <br><br>
+        <p>Consider the form below:</p>
+        <div class="playgrnd3" style="display:none">
+            <form id="myForm" name="myForm" style="color:#fff;">
+                <div>
+                  <label for="userName">Enter name:</label>
+                  <input type="text" id="userName" name="userName">
+                </div>
+                <div>
+                  <label for="userPass">Enter Password:</label>
+                  <input type="password" id="userPass" name="userPass">
+                </div>
+                <div>
+                  <label for="userfile">Upload file:</label>
+                  <input type="file" id="userfile" name="userfile">
+                </div>
+              <input type="submit" value="Submit!">
+              </form>
+              <br>
+              <div class="formOutput"></div>
+        </div>
+        </code>
+    </section>
+<!-- Matches -->
+     <div class="toggle"></div>
+    <section>
+        <header>
+            <h3><code>matches()</code></h3>
+        </header>
+        <p>Determind if an element matches a certain CSS selector. (such as a class or id)</p>
+        <code>
+          
+            &lt;ul class="colors"&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;red&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;li class="pink"&gt;pink&lt;/li&gt;<br>
+            &nbsp;&nbsp;&lt;li&gt;blue&lt;/li&gt;<br>
+            &lt;/ul&gt;<br>
+
+            <p>Consider this code:</p>
+            <div class="playgrnd3" style="font-size:11px;">
+                <p><code>const colorList = document.querySelectorAll('.colors li');</code></p>
+                <p><code>for(let i=0; i < colorList.length; i+=1){</code><br>
+                    &nbsp;&nbsp;<code>if(colorList[i].matches('.pink')) {</code><br>
+                        &nbsp;&nbsp;<code>DO SOMETHING: colorList[i]</code><br>
+                        &nbsp;&nbsp;<code> }</code><br>
+                     <code>}</code>
+                </p>
+            </div>
+        </code>
+    </section>
+
+    <div class="toggle"></div>
+    <section>
+        <header>
+            <h3><code>matchMedia()</code></h3>
+        </header>
+        <p>Allows JS to interact with CSS media queries.</p>
+        <p>Consider this code:</p>
+        <div class="playgrnd3">
+            <p>call it on the window object.</p>
+            <p><code>let mq = window.matchMedia('(max-width:600px)')</code></p>
+            <p>Static match at exectution time:<br>
+                <code>if(mq.matches){ // do something}</code><br>
+                <p>You can add a listener that fires two times: when there is a match & where there is no match. But not repeatedly.</p>
+                &nbsp;&nbsp;&nbsp;&nbsp;<code>mq.addListener(function(mq){</code><br><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<code>console.log(mq.media + ' ' + (mq.matches ? 'Match' : 'Not a match'));</code><br><br>
+                    &nbsp;&nbsp;<code>});</code>
+            </p>
+        </div>
+    </section>
+    </br>
+    <small>Presented by Avishai Taashur, 2019</small>
+    </div>
+</body>
+
+
+
+
+
+    <script>
+    var base = document.getElementById('base');
+    function toggleElem(e){
+        const toggle = base.querySelectorAll('.toggle');
+        const sections = base.querySelectorAll('section');
+       const spans = document.querySelectorAll('span');
+        (function(){
+        // init state for toggle = '+' and add click event
+        for(let i=0; i < toggle.length; i+=1){
+            toggle[i].append('😳');
+            toggle[i].addEventListener('click', tog);
+        }
+        for(let k=0; k < sections.length; k+=1){
+           sections[k].addEventListener('click', sectionsClick);
+        }
+        }());
+        function tog(e){
+            var that = this;
+            that.innerText === '😳' ? that.innerText = '😱' : that.innerText = '😳';
+            e.target.nextElementSibling.classList.toggle('show');
+        }
+        function sectionsClick(e){
+            var clicked = 'false';
+             console.log(e.target.nextElementSibling);
+            if(e.target.nextElementSibling.contains(document.querySelector('.playgrnd1'))){
+                document.querySelector('.playgrnd1').style.display='inline-block';
+            }
+            if(e.target.parentElement.contains(document.querySelector('.playgrnd1'))){  
+                //first click to expose ?tion bubbles
+                if( e.target.parentElement.className === 'playgrnd1' && clicked != 'true'){
+                    for(let i=0;i < spans.length; i+=1){
+                        spans[i].style.display = 'inline-block';
+                    }
+                    clicked = 'true';
+                    return clicked;
+                }   
+   
+          }
+
+if(e.target.parentElement.contains(document.querySelector('.playgrnd2'))){ 
+    document.querySelector('.playgrnd2').querySelector('.codeContains').style.display = 'block';
+    
+ }
+// FormData
+e.target.nextElementSibling.contains(document.querySelector('.playgrnd3')) ? ((document.querySelector('.playgrnd3').style.display ="block") && (document.querySelector('.playgrnd3').classList.remove('playgrnd3') )) : false;
+
+ 
+        }
+        function togMentr(e){
+            e.target.innerText = '😧';
+        }
+        function togMLeav(e){
+            e.target.innerText = '😳';
+        }
+
+    }
+    toggleElem();
+    
+    // formData code
+    const myForm = document.querySelector('#myForm');
+    myForm.addEventListener('submit', function(e) {
+
+    let formOutput = document.querySelector('.formOutput');
+    formdd = new FormData(myForm);   
+
+    let txt='';
+    txt +=  '<p>From the FormData() Object:</p>';
+
+    for (var value of formdd.values()) {
+        if(value !== 'undefined'){
+            txt +=  value === 'undefined' ? '': value+'<br>';
+            if(value['name'] !== undefined){
+                txt +=  'File Name: '+value['name'] + '<br>';
+            }
+            if(value['size'] !== undefined){
+                txt +=  'File Size: '+value['size'] + '<br>';
+            }
+            if(value['type'] !== undefined){
+                txt +=  'File Type: '+value['type'] + '<br>';
+            }
+        }
+    }
+
+    // txt += 'User name: '+formdd.get('userName')+'<br>';
+    // txt += 'User password: ' +formdd.get('userPass')+'<br>';
+    // txt += 'User file: ' +formdd.get('userfile')+'<br>';
+    txt += '<p>Get a reference to the form:</p>'+'<br>'+
+           'const myForm = document.querySelector(#myForm);'+'<br>'+
+            'myForm.addEventListener(submit, function(e) {'+'<br>'+
+            'const formDataSend = new FormData(myForm);'+'<br>'+'},false);';
+
+    txt += '<p>var ajaxReq = new XMLHttpRequest();'+'<br>'+
+                   'ajaxReq.open("POST", "action.js", true);</p>'+'<br>'+
+                   'ajaxReq.send(formDataSend);';  
+
+    formOutput.innerHTML = txt;
+
+
+    e.preventDefault();    
+    },false);
+    </script>
+</html>
+
+
+
+
+
+
+
+<!-- FORM USING FormData Example -->
+
+<!-- https://coderpad.io/sandbox -->
+
+<!-- 
+
+
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #1d2126;
+        color: white;
+      }
+      .wrapper{
+        width:400px;
+        max-width:90%;
+        margin:0 auto;
+      }
+      .wrapper label{
+        display:block;
+        margin: 0.5em 0;
+      }
+      .wrapper label input{
+        font-size:18px;
+        padding:0.5em;
+      }
+       .wrapper input[type="submit"]{
+        font-size:20px;
+        color:blue;
+      }
+    </style>
+  </head>
+  <body>
+    
+    
+    <div class="wrapper">
+      
+      <form class="form">
+        <label id="nameField">
+          <input type="text" name="nameField" placeholder="name" required/>
+        </label>
+        <label id="emailField">
+          <input type="email" name="emailField" placeholder="email" required/>
+        </label>
+        <label id="passField">
+          <input type="password" name="passField" placeholder="password" required/>
+        </label>
+        <label id="passValidField">
+          <input type="password" name="passValidField" placeholder="confirm password" required/>
+        </label>
+        <input type="submit" value="SUBMIT" name="submit"/>
+      </form>
+      
+    </div>
+ 
+    
+    
+    <script>
+    const wrapper = document.querySelector('.wrapper'),
+          form = wrapper.querySelectorAll('.form'),
+          submitForm = form[0].querySelector('input[type="submit"]'),
+          password = form[0].querySelector('label#passValidField input');  
+          
+      
+      
+
+  function validator(e){
+      var wrapper = document.querySelector('.wrapper');
+      var form = wrapper.querySelectorAll('.form');  
+      var leftPass =  form[0].querySelector('label#passField input');
+      var rightPass =  form[0].querySelector('label#passValidField input'); 
+             
+      leftPass.value ===  e.target.value ? ((rightPass.style.backgroundColor='#c4f8c4')+ (leftPass.style.backgroundColor='#c4f8c4')):   rightPass.style.backgroundColor='#eec0ba';   
+       
+        if(e.target.value.length === 0){
+rightPass.style.backgroundColor='#fff';
+leftPass.style.backgroundColor='#fff';
+           }
+      }
+      
+      function submitAForm(e){
+        e.preventDefault();
+        var formData = new FormData(form[0]);
+        alert(formData.get('nameField')+' - '+formData.get('emailField')+' - '+formData.get('passField'));
+      }
+      
+      
+document.addEventListener('DOMContentLoaded',function() {
+      password.onkeyup=validator;
+      submitForm.addEventListener('click', submitAForm, false);
+}, false);
+    </script>
+  </body>
+</html>
+
+
+
+
+
+ -->
