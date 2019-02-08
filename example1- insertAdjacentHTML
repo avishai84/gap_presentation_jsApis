@@ -46,6 +46,11 @@
 // reference
 const menu = document.querySelector('.menu');
 
-//menu.insertAdjacentHTML('beforebegin', '<p>Hello world!</p>');
+// menu.insertAdjacentHTML('beforebegin', '<p>Hello world!</p>');
 
+// menu.insertAdjacentHTML('afterbegin', '<p>Hello world!</p>');  
+  
+// menu.insertAdjacentHTML('beforeend', '<p>Hello world!</p>');   
+  
+// menu.insertAdjacentHTML('afterend', '<p>Hello world!</p>');    
 </script>
