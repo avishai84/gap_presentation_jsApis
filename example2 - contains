@@ -28,7 +28,7 @@ const element = document.querySelector('.wrapper');
 
 if(document.body.contains(element)){
 
-  document.querySelector('.foo').append('I love JavaScript!');
+  //document.querySelector('.foo').append('I love JavaScript!');
 
   }  
 </script>
