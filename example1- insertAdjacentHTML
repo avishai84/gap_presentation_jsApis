@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #1d2126;
+        color: white;
+      }
+      
+      /*   ALL CHILDREN - BODY      */
+      *{outline:1px solid grey;padding:1em;color:white;}
+      
+      /*   NAV     */
+      nav{outline:1px solid orange;}
+      
+      /*   UL    */
+      ul{outline:1px solid green;}
+      
+      /*   LI     */
+      li{outline:1px solid pink;}
+      
+      /*   A     */
+      a{outline:1px solid yellow;}
+      
+      /*   P     */
+      p{outline:1px solid purple;}
+      
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul class="menu">
+        <li>
+          <a href=/home>Home</a>
+        </li>
+        <li>
+          <a href=/about>About</a>
+        </li>
+      </ul>
+    </nav>
+  </body>
+</html>
+
+<script>
+
+
+// reference
+const menu = document.querySelector('.menu');
+
+//menu.insertAdjacentHTML('beforebegin', '<p>Hello world!</p>');
+
+</script>
