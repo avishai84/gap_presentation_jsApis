@@ -35,18 +35,19 @@
     
     const results = document.querySelector('.results');
     
-    let mq = window.matchMedia('(max-width:600px)');
+    let mq = window.matchMedia('(max-width:700px)');
 
-    results.innerHTML += mq.matches;
+    //results.innerHTML += mq.matches;
     
-    results.innerHTML += mq.media;
+    //results.innerHTML += mq.media;
     
     if(mq.matches){
       
-       results.innerHTML = 'I am a match. Only once!' 
+       results.innerHTML += 'I am a match. Only once!' 
     
     }
     
+
     //Add addListener
     
     mq.addListener(function(mq){
@@ -65,4 +66,3 @@
     
   </script>   
 </html>
-
