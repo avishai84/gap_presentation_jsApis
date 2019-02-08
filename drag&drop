@@ -1,0 +1,111 @@
+
+//https://coderpad.io/sandbox
+
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #1d2126;
+        color: white;
+        font-size:16px;
+        font-family:'Helvetica';
+        width:300px;
+      }
+      input{padding:2em;outline:2px white dashed;}
+      input:after{
+        content:'Drap files here...';
+        display:block;
+        padding:1em 0.225em;
+        text-align:center;
+        font-size:2em;
+      }
+      output{margin-top:1em;display:flex;justify-content:space-evenly;flex-flow: column;font-size:0.90em;;flex-wrap:nowrap;}
+
+      output span{padding:1em 0.5em 0.5em;}
+    </style>
+  </head>
+  <body>
+    <h1>Drag & Drop</h1>
+    <input type="file" multiple class="dropzone" />
+    <output></output>
+    <div class="results"></div>
+  </body>
+  
+  
+  <script>
+  const input = document.querySelector('input');
+  const output = document.querySelector('output');
+  const results = document.querySelector('.results'); 
+    
+    let formData = new FormData();
+    
+      document.addEventListener("dragenter", function( e ) {
+      // highlight potential drop target when the draggable element enters it
+      if ( e.target.className == "dropzone" ) {
+          e.target.style.background = "purple";
+      }
+
+  }, false);
+
+  document.addEventListener("dragleave", function( e ) {
+
+      if ( e.target.className == "dropzone" ) {
+          e.target.style.background = "";
+      }
+
+  }, false);
+  
+  document.addEventListener("drop", function( e ) {
+    
+      // pre default action (open as link for some elements)
+    
+      e.preventDefault();
+      e.dataTransfer.dropEffect = 'copy';
+    
+      let fileItem = '';
+      const files = e.dataTransfer.files;
+
+    
+      // move dragged elem to the selected drop target
+    
+      if ( e.target.className == "dropzone" ) {
+          e.target.style.background = "grey";
+        
+        // loop through files
+        
+        for(let f, i=0; f=files[i]; i+=1){
+          
+          // append images to form data
+          
+          formData.append('photo'+[i], f);
+          
+        
+          fileItem += `<span style="color:red;">NAME: ${f.name}</span> `;
+ 
+          if(f.type.match('image')){
+          
+          fileItem +=  `<span style="color:orange;">TYPE: ${f.type}</span> `;
+
+          }
+          
+        }
+        
+      output.innerHTML += fileItem;
+      results.innerHTML += `FormData: ${formData.get('photo0').name} <br>`;
+      results.innerHTML += `FormData: ${formData.get('photo1').name} <br>`;
+      results.innerHTML += `FormData: ${formData.get('photo2').name} <br>`;
+      results.innerHTML += `FormData: ${formData.get('photo3').name} <br>`;
+        
+      }
+  }, false);
+  
+  
+  </script>
+  
+  
+  
+  
+  
+</html>
+
+
