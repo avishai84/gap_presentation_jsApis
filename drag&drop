@@ -1,6 +1,7 @@
 
 //https://coderpad.io/sandbox
 
+
 <html>
   <head>
     <style>
@@ -11,7 +12,10 @@
         font-family:'Helvetica';
         width:300px;
       }
-      input{padding:2em;outline:2px white dashed;}
+      input{
+      padding:2em;
+      outline:2px white dashed;
+      }
       input:after{
         content:'Drap files here...';
         display:block;
@@ -19,18 +23,30 @@
         text-align:center;
         font-size:2em;
       }
-      output{margin-top:1em;display:flex;justify-content:space-evenly;flex-flow: column;font-size:0.90em;;flex-wrap:nowrap;}
-
-      output span{padding:1em 0.5em 0.5em;}
+      output{margin-top:1em;
+      display:flex;
+      justify-content:space-evenly;
+      flex-flow:column;
+      font-size:0.90em;
+      flex-wrap:nowrap;
+      }
+      output span{
+      padding:1em 0.5em 0.5em;
+      }
     </style>
   </head>
-  <body>
-    <h1>Drag & Drop</h1>
-    <input type="file" multiple class="dropzone" />
-    <output></output>
-    <div class="results"></div>
-  </body>
   
+  <body>
+  
+    <h1>Drag & Drop</h1>
+    
+    <input type="file" multiple class="dropzone" />
+    
+    <output></output>
+    
+    <div class="results"></div>
+    
+  </body>
   
   <script>
   const input = document.querySelector('input');
@@ -40,9 +56,8 @@
     let formData = new FormData();
     
       document.addEventListener("dragenter", function( e ) {
-      // highlight potential drop target when the draggable element enters it
         
-      if ( e.target.contains(document.querySelector('.dropzone'))){
+      if ( e.target.className == "dropzone"){
           e.target.style.background = "purple";
       }
 
@@ -102,13 +117,7 @@
       }
   }, false);
   
-  
   </script>
-  
-  
-  
-  
-  
 </html>
 
 
