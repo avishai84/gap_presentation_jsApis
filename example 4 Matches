@@ -55,7 +55,7 @@
       document.querySelector('.results').innerHTML = resultsArr[0].outerHTML;
     }
 
-   getColor('.pink');
+   //getColor('.pink');
     
     
   </script>   
