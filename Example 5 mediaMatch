@@ -1,0 +1,68 @@
+
+<html>
+  <head>
+    <style>
+      
+      body {
+        background-color: #1d2126;
+        color: white;
+        font-size:16px;
+        font-family:'Helvetica';
+      }
+      
+      *{outline:1px solid grey;}
+      
+      .results{color:orange;padding:1em 0;}
+ 
+        
+    </style>
+  </head>
+  
+  <body>
+    
+   <h1>matchMedia<h1> 
+
+     <output>Screen width:</output>
+     
+     <div class="results"></div>
+     
+     
+     
+  </body>
+  <script>
+
+    const output = document.querySelector('output');
+    
+    const results = document.querySelector('.results');
+    
+    let mq = window.matchMedia('(max-width:600px)');
+
+    results.innerHTML += mq.matches;
+    
+    results.innerHTML += mq.media;
+    
+    if(mq.matches){
+      
+       results.innerHTML = 'I am a match. Only once!' 
+    
+    }
+    
+    //Add addListener
+    
+    mq.addListener(function(mq){
+
+      results.innerHTML = mq.media + ' ' + (mq.matches ? ' Match' : ' Not a match');
+
+    });
+    
+    // resize event 
+    
+    window.addEventListener("resize", function(e) {
+    
+      output.innerHTML = 'Screen width: '+ e.target.innerWidth ;
+    
+    });
+    
+  </script>   
+</html>
+
