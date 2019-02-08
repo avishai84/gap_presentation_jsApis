@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #1d2126;
+        color: white;
+      }
+      
+      /*   ALL CHILDREN - BODY      */
+      *{outline:1px solid grey;padding:1em;color:white;}
+      
+      
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+       <div class="foo">
+         <h4>Contains Example</h4>
+       </div>
+    </div>
+  </body>
+</html>
+
+<script>
+
+
+const element = document.querySelector('.wrapper');
+
+if(document.body.contains(element)){
+
+  document.querySelector('.foo').append('I love JavaScript!');
+
+  }  
+</script>
