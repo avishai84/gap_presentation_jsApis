@@ -1,7 +1,6 @@
 
 //https://coderpad.io/sandbox
 
-
 <html>
   <head>
     <style>
@@ -26,15 +25,10 @@
     </style>
   </head>
   <body>
-    
     <h1>Drag & Drop</h1>
-    
     <input type="file" multiple class="dropzone" />
-    
     <output></output>
-    
     <div class="results"></div>
-    
   </body>
   
   
@@ -46,9 +40,7 @@
     let formData = new FormData();
     
       document.addEventListener("dragenter", function( e ) {
-        
       // highlight potential drop target when the draggable element enters it
-        
       if ( e.target.className == "dropzone" ) {
           e.target.style.background = "purple";
       }
@@ -57,8 +49,9 @@
 
   document.addEventListener("dragleave", function( e ) {
 
-      if ( e.target.className == "dropzone" ) {
-        
+    // USING CONTAINS
+    
+      if ( e.target.contains(document.querySelector('.dropzone'))) {
           e.target.style.background = "";
       }
 
@@ -77,8 +70,7 @@
     
       // move dragged elem to the selected drop target
     
-      if ( e.target.className == "dropzone" ) {
-        
+      if ( e.target.contains(document.querySelector('.dropzone'))) {
           e.target.style.background = "grey";
         
         // loop through files
@@ -87,7 +79,7 @@
           
           // append images to form data
           
-          formData.append('file'+[i], f);
+          formData.append('photo'+[i], f);
           
         
           fileItem += `<span style="color:red;">NAME: ${f.name}</span> `;
@@ -101,10 +93,10 @@
         }
         
       output.innerHTML += fileItem;
-      results.innerHTML += `FormData: ${formData.get('file0').name} <br>`;
-      results.innerHTML += `FormData: ${formData.get('file1').name} <br>`;
-      results.innerHTML += `FormData: ${formData.get('file2').name} <br>`;
-      results.innerHTML += `FormData: ${formData.get('file3').name} <br>`;
+      results.innerHTML += `FormData: ${formData.get('photo0').name} <br>`;
+      results.innerHTML += `FormData: ${formData.get('photo1').name} <br>`;
+      results.innerHTML += `FormData: ${formData.get('photo2').name} <br>`;
+      results.innerHTML += `FormData: ${formData.get('photo3').name} <br>`;
         
       }
   }, false);
@@ -117,4 +109,5 @@
   
   
 </html>
+
 
