@@ -1,6 +1,5 @@
 
 //https://coderpad.io/sandbox
-
 <html>
   <head>
     <style>
@@ -41,7 +40,8 @@
     
       document.addEventListener("dragenter", function( e ) {
       // highlight potential drop target when the draggable element enters it
-      if ( e.target.className == "dropzone" ) {
+        
+      if ( e.target.contains(document.querySelector('.dropzone'))){
           e.target.style.background = "purple";
       }
 
