@@ -1,0 +1,63 @@
+
+<html>
+  <head>
+    <style>
+      
+      body {
+        background-color: #1d2126;
+        color: white;
+        font-size:16px;
+        font-family:'Helvetica';
+      }
+      
+      *{outline:1px solid grey;}
+      
+      .pink{color:pink;}
+        
+    </style>
+  </head>
+  
+  <body>
+    
+   <h1>Matches<h1> 
+    
+  <ul class="colors">
+    
+    <li>red</li>
+    
+    <li class="pink">pink</li>
+    
+    <li>blue</li>
+    
+  </ul>
+ 
+     <div class="results"></div>
+     
+  </body>
+  <script>
+
+    const colorList = document.querySelectorAll('.colors li');
+    let resultsArr = [];
+    
+      function getColor(className){
+
+        document.querySelector('.results').innerHTML = className;
+        
+        for(let i=0; i < colorList.length; i+=1){
+
+        if(colorList[i].matches(className)) {
+
+          resultsArr.push(colorList[i]);
+
+         }
+      }
+      
+      document.querySelector('.results').innerHTML = resultsArr[0].outerHTML;
+    }
+
+   getColor('.pink');
+    
+    
+  </script>   
+</html>
+
