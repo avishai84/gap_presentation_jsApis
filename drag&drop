@@ -2,6 +2,7 @@
 //https://coderpad.io/sandbox
 
 
+
 <html>
   <head>
     <style>
@@ -95,7 +96,7 @@
           
           // append images to form data
           
-          formData.append('photo'+[i], f);
+          formData.append('file'+[i], f);
           
         
           fileItem += `<span style="color:red;">NAME: ${f.name}</span> `;
@@ -109,15 +110,13 @@
         }
         
       output.innerHTML += fileItem;
-      results.innerHTML += `FormData: ${formData.get('photo0').name} <br>`;
-      results.innerHTML += `FormData: ${formData.get('photo1').name} <br>`;
-      results.innerHTML += `FormData: ${formData.get('photo2').name} <br>`;
-      results.innerHTML += `FormData: ${formData.get('photo3').name} <br>`;
+      results.innerHTML += `FormData: ${formData.get('file0').name} <br>`;
+      results.innerHTML += `FormData: ${formData.get('file1').name} <br>`;
+      results.innerHTML += `FormData: ${formData.get('file2').name} <br>`;
+      results.innerHTML += `FormData: ${formData.get('file3').name} <br>`;
         
       }
   }, false);
   
   </script>
 </html>
-
-
