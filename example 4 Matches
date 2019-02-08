@@ -40,8 +40,6 @@
     let resultsArr = [];
     
       function getColor(className){
-
-        document.querySelector('.results').innerHTML = className;
         
         for(let i=0; i < colorList.length; i+=1){
 
@@ -60,4 +58,3 @@
     
   </script>   
 </html>
-
