@@ -1,0 +1,103 @@
+
+<html>
+  <head>
+    <style>
+      body {
+        background-color: #1d2126;
+        color: white;
+        font-size:16px;
+        font-family:'Helvetica';
+        width:300px;
+      }
+      input{
+      display:flex;
+      padding:0.25em;
+      margin:0.35em 0;
+      }
+
+    </style>
+  </head>
+  
+  <body>
+  
+    <h1>Form Data</h1>
+    
+<form id="myForm" name="myForm" style="color:#fff;">
+  
+    <div>
+      <label for="userName">Enter name:</label>
+      <input type="text" id="userName" name="userName">
+    </div>
+  
+    <div>
+      <label for="userPass">Enter Password:</label>
+      <input type="password" id="userPass" name="userPass">
+    </div>
+    <div>
+      
+      <label for="userfile">Upload file:</label>
+      <input type="file" id="userfile" name="userfile">
+    </div>
+  
+  <input type="submit" value="Submit!">
+  
+  </form>
+    
+  <output></output>  
+    
+  </body>
+  
+  <script>
+    
+  // formData code
+    
+    const myForm = document.querySelector('#myForm');
+    const output =  document.querySelector('output');
+    
+    myForm.addEventListener('submit', function(e) {
+      
+    e.preventDefault(); 
+      
+    let formOutput = document.querySelector('.formOutput');
+      
+    const formData = new FormData(myForm);   
+      
+    let txt='';
+      
+    txt +=  '<p>From the FormData() Object:</p>';
+      
+    for (var value of formData.values()) {
+      
+        if(value !== 'undefined'){
+          
+            txt +=  value === 'undefined' ? '': value+'<br>';
+          
+            
+          if(value['name'] !== undefined){
+              
+                txt +=  'File Name: '+value['name'] + '<br>';
+            }
+           
+          if(value['size'] !== undefined){
+                txt +=  'File Size: '+value['size'] + '<br>';
+            }
+           
+          if(value['type'] !== undefined){
+                txt +=  'File Type: '+value['type'] + '<br>';
+            }
+        }
+    }
+      
+      
+    txt += 'User name: '+formData.get('userName')+'<br>';
+    txt += 'User password: ' +formData.get('userPass')+'<br>';
+    txt += 'User file: ' +formData.get('userfile')+'<br>';
+ 
+    output.innerHTML = txt;
+       
+      
+    },false);
+    
+  
+  </script>
+</html>
