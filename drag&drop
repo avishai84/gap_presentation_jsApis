@@ -1,7 +1,4 @@
 
-//https://coderpad.io/sandbox
-
-
 
 <html>
   <head>
@@ -34,6 +31,7 @@
       output span{
       padding:1em 0.5em 0.5em;
       }
+     
     </style>
   </head>
   
@@ -99,21 +97,24 @@
           formData.append('file'+[i], f);
           
         
-          fileItem += `<span style="color:red;">NAME: ${f.name}</span> `;
+          fileItem += `<span style="color:red;">File Name: ${f.name}</span> `;
  
           if(f.type.match('image')){
           
-          fileItem +=  `<span style="color:orange;">TYPE: ${f.type}</span> `;
+          fileItem +=  `<span style="color:orange;">File Type: ${f.type}</span> `;
 
           }
           
         }
         
+        
       output.innerHTML += fileItem;
-      results.innerHTML += `FormData: ${formData.get('file0').name} <br>`;
-      results.innerHTML += `FormData: ${formData.get('file1').name} <br>`;
-      results.innerHTML += `FormData: ${formData.get('file2').name} <br>`;
-      results.innerHTML += `FormData: ${formData.get('file3').name} <br>`;
+        
+      results.setAttribute('style', 'outline:2px dashed grey;padding:1em;width:70%;height:auto;');
+      results.innerHTML += `Results of FormData Obj: ${formData.get('file0').name} <br>`;
+      results.innerHTML += `Results of FormData Obj: ${formData.get('file1').name} <br>`;
+      results.innerHTML += `Results of FormData Obj: ${formData.get('file2').name} <br>`;
+      results.innerHTML += `Results of FormData Obj: ${formData.get('file3').name} <br>`;
         
       }
   }, false);
