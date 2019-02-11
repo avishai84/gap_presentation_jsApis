@@ -89,7 +89,7 @@
           e.target.style.background = "grey";
         
         // loop through files
-        
+              let itm = '';
         for(let f, i=0; f=files[i]; i+=1){
           
           // append images to form data
@@ -105,16 +105,28 @@
 
           }
           
+      
         }
         
+         output.innerHTML += fileItem;
         
-      output.innerHTML += fileItem;
-        
+          if(files.length > 1){
+
+          // show the form data name results  
+            
+             let f = '';
+               for(let i=0; i < files.length; i+=1 ) {
+                  f = formData.get('file'+[i]).name;
+                  itm += `Results of FormData Obj: ${f} <br>`;
+              }
+
+          }
+               
+    
       results.setAttribute('style', 'outline:2px dashed grey;padding:1em;width:70%;height:auto;');
-      results.innerHTML += `Results of FormData Obj: ${formData.get('file0').name} <br>`;
-      results.innerHTML += `Results of FormData Obj: ${formData.get('file1').name} <br>`;
-      results.innerHTML += `Results of FormData Obj: ${formData.get('file2').name} <br>`;
-      results.innerHTML += `Results of FormData Obj: ${formData.get('file3').name} <br>`;
+        
+      results.innerHTML = itm;
+
         
       }
   }, false);
