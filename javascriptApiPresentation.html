@@ -24,7 +24,6 @@ h2{
    padding: 0 0.5em;
    color:#fff;
 }
-
 .playgrnd1 span:nth-of-type(1n+1){
     font-size: 12px;
     color: red;
@@ -76,7 +75,6 @@ section p{
    cursor: pointer;
    transform:rotate(-10deg);
 }
-
 section{
     box-shadow: 3px 3px 10px rgba(167, 227, 236, 0.95);
     padding: 1em 0.90em;
@@ -113,13 +111,12 @@ section code > span.toolTip:hover:before{
     border-radius: 5px;
 }
 /* adjacentHTML */
-section:nth-child(4) code > span.toolTip:hover:before{
+section.sec1 code > span.toolTip:hover:before{
     content: ' beforebegin afterbegin beforeend afterend ';
     }
-section:nth-child(4) code > span.toolTip:nth-child(2):hover:before{
+section.sec1  code > span.toolTip:nth-child(2):hover:before{
     content: ' Any valid HTML string ';
     }
-
 section code > span.toolTip:hover{
     cursor:pointer;
 }
@@ -134,14 +131,16 @@ section code > span.toolTip:hover{
 </head>
 
 <body>
+    <a style="color:white" target="_blank" href="https://coderpad.io/sandbox">Code Editor</a>
+    <a style="color:white" target="_blank" href="https://github.com/avishai84/gap_presentation_jsApis/blob/master/drag&drop">Git</a>
     <div id="base">
-    <h2>JavaScript APIs you've hardly heard of <small>(And no vendor prefix!)</small></h2>
-    <p style="display:none;">https://www.youtube.com/watch?v=tMh-_Ri650Q</p>
+    <h2>5 JavaScript APIs you've hardly heard of <small>(And no vendor prefix!)</small></h2>
+  
     
 
 <!-- AdjacentHTML -->
     <div class="toggle"></div>
-    <section>
+    <section class="sec1">
         <header>
             <h3><code>insertAdjacentHTML()</code></h3>
         </header>
@@ -150,9 +149,7 @@ section code > span.toolTip:hover{
         <p>Consider this HTML: </p>
         <code>
         <div class="playgrnd1" style="display:none">
-        // reference<br>
-        const menu = document.querySelector('.menu');<br><br>
-        menu.insertAdjacentHTML('beforebegin', '&lt;p&gt;Hello world!&lt;/p&gt;');<br><br><br>
+ 
             <div>&lt;h2&gt;Site menu&lt;/h2&gt;<br></div>
             <div>&lt;nav&gt;</div>
             <span style="display:none">?</span>
@@ -166,9 +163,11 @@ section code > span.toolTip:hover{
             <div>&nbsp;&nbsp;&lt;/ul&gt;<br></div><span style="display:none">?</span>
             <div>&lt;/nav&gt;</div>
         <br><br>
-
-
+        // reference<br>
+        const menu = document.querySelector('.menu');<br><br>
+        menu.insertAdjacentHTML('beforebegin', '&lt;p&gt;Hello world!&lt;/p&gt;');<br><br><br>
         </div>
+        <small>example on codepad</small>
         </code>
     </section>
 <!-- contains -->
@@ -195,9 +194,8 @@ section code > span.toolTip:hover{
         <p style="font-size: 0.65em;">document.querySelector('.wrapper').contains(document.querySelector('h4')) ? true : false;</p>
         </div>
         <br><br>
-  
-
         </div>
+        <small>example on later code!!!</small>
         </code>
     </section>
     <!-- FormData -->
@@ -235,6 +233,7 @@ section code > span.toolTip:hover{
               <br>
               <div class="formOutput"></div>
         </div>
+        <small>example on codepad</small>
         </code>
     </section>
 <!-- Matches -->
@@ -261,6 +260,7 @@ section code > span.toolTip:hover{
                         &nbsp;&nbsp;<code> }</code><br>
                      <code>}</code>
                 </p>
+                <small>example on codepad</small>
             </div>
         </code>
     </section>
@@ -331,14 +331,12 @@ section code > span.toolTip:hover{
                 }   
    
           }
-
 if(e.target.parentElement.contains(document.querySelector('.playgrnd2'))){ 
     document.querySelector('.playgrnd2').querySelector('.codeContains').style.display = 'block';
     
  }
 // FormData
 e.target.nextElementSibling.contains(document.querySelector('.playgrnd3')) ? ((document.querySelector('.playgrnd3').style.display ="block") && (document.querySelector('.playgrnd3').classList.remove('playgrnd3') )) : false;
-
  
         }
         function togMentr(e){
@@ -347,20 +345,16 @@ e.target.nextElementSibling.contains(document.querySelector('.playgrnd3')) ? ((d
         function togMLeav(e){
             e.target.innerText = '😳';
         }
-
     }
     toggleElem();
     
     // formData code
     const myForm = document.querySelector('#myForm');
     myForm.addEventListener('submit', function(e) {
-
     let formOutput = document.querySelector('.formOutput');
     formdd = new FormData(myForm);   
-
     let txt='';
     txt +=  '<p>From the FormData() Object:</p>';
-
     for (var value of formdd.values()) {
         if(value !== 'undefined'){
             txt +=  value === 'undefined' ? '': value+'<br>';
@@ -375,7 +369,6 @@ e.target.nextElementSibling.contains(document.querySelector('.playgrnd3')) ? ((d
             }
         }
     }
-
     // txt += 'User name: '+formdd.get('userName')+'<br>';
     // txt += 'User password: ' +formdd.get('userPass')+'<br>';
     // txt += 'User file: ' +formdd.get('userfile')+'<br>';
@@ -383,14 +376,10 @@ e.target.nextElementSibling.contains(document.querySelector('.playgrnd3')) ? ((d
            'const myForm = document.querySelector(#myForm);'+'<br>'+
             'myForm.addEventListener(submit, function(e) {'+'<br>'+
             'const formDataSend = new FormData(myForm);'+'<br>'+'},false);';
-
     txt += '<p>var ajaxReq = new XMLHttpRequest();'+'<br>'+
                    'ajaxReq.open("POST", "action.js", true);</p>'+'<br>'+
                    'ajaxReq.send(formDataSend);';  
-
     formOutput.innerHTML = txt;
-
-
     e.preventDefault();    
     },false);
     </script>
@@ -407,8 +396,6 @@ e.target.nextElementSibling.contains(document.querySelector('.playgrnd3')) ? ((d
 <!-- https://coderpad.io/sandbox -->
 
 <!-- 
-
-
 <html>
   <head>
     <style>
@@ -468,7 +455,6 @@ e.target.nextElementSibling.contains(document.querySelector('.playgrnd3')) ? ((d
           
       
       
-
   function validator(e){
       var wrapper = document.querySelector('.wrapper');
       var form = wrapper.querySelectorAll('.form');  
@@ -497,9 +483,3 @@ document.addEventListener('DOMContentLoaded',function() {
     </script>
   </body>
 </html>
-
-
-
-
-
- -->
