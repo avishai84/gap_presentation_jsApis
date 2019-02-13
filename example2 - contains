@@ -28,7 +28,7 @@ const element = document.querySelector('h4');
 
 if(document.body.contains(element)){
 
-  document.querySelector('h4').append('I love JavaScript!');
+  document.querySelector('h4').append(' I love JavaScript!');
 
   }  
 </script>
