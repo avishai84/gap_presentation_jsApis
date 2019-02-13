@@ -10,19 +10,19 @@
       *{outline:1px solid grey;padding:1em;color:white;}
       
       /*   NAV     */
-      nav{outline:1px solid orange;}
+      nav{outline-color: orange;}
       
       /*   UL    */
-      ul{outline:1px solid green;}
+      ul{outline-color: green;}
       
       /*   LI     */
-      li{outline:1px solid pink;}
+      li{outline-color: pink;}
       
       /*   A     */
-      a{outline:1px solid yellow;}
+      a{outline-color: yellow;}
       
       /*   P     */
-      p{outline:1px solid purple;}
+      p{outline-color: purple;}
       
     </style>
   </head>
