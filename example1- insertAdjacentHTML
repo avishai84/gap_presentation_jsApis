@@ -43,7 +43,7 @@
 <script>
 
 
-// reference
+// get a reference
 const menu = document.querySelector('.menu');
 
 // menu.insertAdjacentHTML('beforebegin', '<p>Hello world!</p>');
